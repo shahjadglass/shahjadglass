@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b47">
+  <meta name="description" content="SHAHJAD GLASS — glass, aluminium, LED mirrors, shower partitions and interior solutions in Wazirabad, Sector 52, Gurugram.">
+  <title>SHAHJAD GLASS | Glass & Interior Solutions</title>
+  <style>
+    :root {
+      --green: #176b47;
+      --green-dark: #104b32;
+      --green-light: #eaf5ee;
+      --ink: #173326;
+      --muted: #62736a;
+      --line: #dce8df;
+      --white: #fff;
+      --bg: #f7faf8;
+      --shadow: 0 12px 35px rgba(18, 74, 47, .09);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button, .btn { cursor: pointer; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .topbar { background: var(--green-dark); color: #eaf7ef; font-size: .86rem; padding: 8px 0; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    header { background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 210px; }
+    .brand-mark { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 13px; background: var(--green); color: white; font-weight: 850; letter-spacing: -2px; font-size: 1.1rem; box-shadow: 0 6px 15px #176b472b; }
+    .brand-name { font-weight: 850; letter-spacing: .035em; line-height: 1.15; }
+    .brand-tag { font-size: .68rem; letter-spacing: .11em; color: var(--muted); margin-top: 4px; }
+    nav { display: flex; align-items: center; gap: 24px; font-size: .92rem; font-weight: 650; }
+    nav a:hover { color: var(--green); }
+    .menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; padding: 8px 11px; background: white; color: var(--green); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 750; transition: transform .18s ease, background .18s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { color: white; background: var(--green); box-shadow: 0 7px 18px #176b4724; }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-outline { color: var(--green); background: white; border: 1px solid #b7d3c1; }
+    .btn-light { color: var(--green-dark); background: white; }
+    .hero { padding: 62px 0 52px; overflow: hidden; background: radial-gradient(ellipse at 88% 20%, #dcefe2 0, transparent 35%), linear-gradient(180deg, #f4faf5, #f7faf8); }
+    .hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 44px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #c9e1d0; border-radius: 999px; padding: 7px 12px; color: var(--green); background: #fff; font-size: .8rem; font-weight: 750; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #34a66c; }
+    h1 { font-size: clamp(2.55rem, 5vw, 4.5rem); letter-spacing: -.055em; line-height: 1.04; margin: 20px 0 18px; }
+    h1 span { color: var(--green); }
+    .hero-copy { color: var(--muted); font-size: 1.08rem; max-width: 550px; margin: 0 0 25px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; color: #40594a; font-size: .87rem; font-weight: 650; }
+    .trust-row span { display: inline-flex; align-items: center; gap: 7px; }
+    .check { color: var(--green); font-weight: 900; }
+    .hero-visual { position: relative; }
+    .hero-photo { min-height: 430px; border-radius: 28px; overflow: hidden; position: relative; background: linear-gradient(145deg, #dcece1, #a7c7b2); box-shadow: var(--shadow); }
+    .hero-photo img { width: 100%; height: 430px; object-fit: cover; display: block; }
+    .photo-fallback { display: none; height: 430px; align-items: center; justify-content: center; flex-direction: column; gap: 12px; padding: 25px; text-align: center; color: var(--green-dark); background: linear-gradient(135deg,#edf7ef,#b6d7c1); }
+    .photo-fallback strong { font-size: 1.5rem; }
+    .float-card { position: absolute; left: -22px; bottom: 24px; background: white; border: 1px solid var(--line); border-radius: 17px; box-shadow: var(--shadow); padding: 16px 18px; max-width: 245px; }
+    .float-card strong { display: block; color: var(--green); font-size: 1.05rem; }
+    .float-card small { color: var(--muted); }
+    section { padding: 72px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 30px; }
+    .kicker { color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 850; }
+    h2 { font-size: clamp(1.85rem, 3.3vw, 2.75rem); letter-spacing: -.04em; line-height: 1.15; margin: 8px 0 10px; }
+    .section-head p, .section-intro { color: var(--muted); max-width: 600px; margin: 0; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 5px 18px #194d3010; transition: transform .2s ease, box-shadow .2s ease; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .service-icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--green-light); color: var(--green); font-size: 1.45rem; }
+    .service-card h3 { margin: 17px 0 7px; font-size: 1.1rem; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .service-card a { display: inline-block; margin-top: 17px; color: var(--green); font-weight: 800; font-size: .9rem; }
+    .soft-section { background: #edf6ef; }
+    .price-wrap { display: grid; grid-template-columns: .72fr 1.28fr; gap: 28px; align-items: start; }
+    .price-note { background: var(--green); color: white; padding: 28px; border-radius: 22px; position: sticky; top: 100px; }
+    .price-note h3 { font-size: 1.55rem; margin: 0 0 10px; }
+    .price-note p { color: #d9eee1; }
+    .price-note .btn { margin-top: 10px; }
+    .price-panel { background: white; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 16px; }
+    .price-panel h3 { margin: 0; padding: 17px 20px; background: #f5faf6; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { padding: 12px 20px; text-align: left; border-bottom: 1px solid #edf2ee; }
+    th { color: var(--muted); font-size: .82rem; font-weight: 750; }
+    td { font-size: .94rem; }
+    td:last-child { color: var(--green); font-weight: 800; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    .price-disclaimer { color: var(--muted); font-size: .82rem; margin-top: 8px; }
+    .gallery-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: 190px 190px; gap: 14px; }
+    .gallery-item { position: relative; border-radius: 17px; overflow: hidden; background: linear-gradient(145deg,#e2eee5,#b5d3bf); }
+    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-label { position: absolute; left: 12px; bottom: 12px; background: #ffffffed; color: var(--green-dark); border-radius: 9px; padding: 7px 10px; font-size: .82rem; font-weight: 800; }
+    .gallery-placeholder { height: 100%; min-height: 150px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #24583d; gap: 8px; text-align: center; padding: 15px; }
+    .gallery-placeholder span { font-size: 2rem; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 28px; }
+    .step { padding: 23px; border-radius: 16px; background: white; border: 1px solid var(--line); }
+    .step-number { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 11px; background: var(--green); color: white; font-weight: 850; }
+    .step h3 { margin: 14px 0 6px; }
+    .step p { color: var(--muted); margin: 0; font-size: .93rem; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; }
+    .contact-info { background: var(--green); color: white; padding: 30px; border-radius: 22px; }
+    .contact-info h2 { margin-top: 8px; }
+    .contact-info > p { color: #d7eadf; }
+    .contact-line { display: flex; gap: 13px; align-items: flex-start; margin-top: 22px; }
+    .contact-symbol { flex: 0 0 40px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: #ffffff20; }
+    .contact-line small { display: block; color: #c8e2d1; margin-bottom: 3px; }
+    .contact-line a, .contact-line strong { overflow-wrap: anywhere; }
+    .contact-info .btn { margin-top: 24px; }
+    form { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 28px; box-shadow: var(--shadow); }
+    form h3 { margin: 0 0 5px; font-size: 1.35rem; }
+    .form-sub { color: var(--muted); margin: 0 0 20px; font-size: .92rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; font-size: .86rem; font-weight: 750; margin-bottom: 6px; }
+    .field { margin-bottom: 14px; }
+    input, select, textarea { width: 100%; border: 1px solid #d7e3da; border-radius: 11px; padding: 12px 13px; outline: none; background: #fcfefd; color: var(--ink); }
+    input:focus, select:focus, textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px #176b4718; }
+    textarea { resize: vertical; min-height: 105px; }
+    .form-status { margin-top: 12px; color: var(--green); font-weight: 700; font-size: .9rem; }
+    .faq-list { max-width: 820px; margin: 24px auto 0; }
+    details { background: white; border: 1px solid var(--line); border-radius: 13px; padding: 16px 18px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 800; }
+    details p { color: var(--muted); margin-bottom: 0; }
+    .cta-band { background: var(--green-dark); color: white; border-radius: 24px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .cta-band h2 { margin: 0 0 8px; }
+    .cta-band p { color: #d2e7da; margin: 0; }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); background: white; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-inner p { color: var(--muted); font-size: .86rem; margin: 5px 0 0; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: .9rem; font-weight: 700; }
+    .whatsapp-float { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: flex; align-items: center; gap: 9px; background: #16884b; color: white; padding: 13px 17px; border-radius: 999px; box-shadow: 0 8px 25px #0a4628aa; font-weight: 850; }
+    .whatsapp-float span { font-size: 1.2rem; }
+    @media (max-width: 850px) {
+      .hero-grid, .price-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+      .hero-photo, .hero-photo img, .photo-fallback { height: 340px; min-height: 340px; }
+      .float-card { left: 12px; }
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .price-note { position: static; }
+      nav { gap: 14px; }
+      nav .nav-quote { display: none; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .topbar-inner { justify-content: center; text-align: center; }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      nav { display: none; position: absolute; top: 68px; left: 0; right: 0; background: white; padding: 15px 22px 20px; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; }
+      nav.open { display: flex; }
+      nav a { padding: 11px 0; border-bottom: 1px solid #edf2ee; }
+      nav .nav-quote { display: inline-flex; margin-top: 10px; }
+      .brand { min-width: 0; }
+      .brand-tag { font-size: .58rem; }
+      .hero { padding: 36px 0 42px; }
+      .hero-grid { gap: 28px; }
+      h1 { font-size: 2.7rem; }
+      .hero-copy { font-size: 1rem; }
+      section { padding: 52px 0; }
+      .section-head { display: block; }
+      .section-head .btn { margin-top: 17px; }
+      .service-grid, .steps { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 170px 150px 150px; }
+      .gallery-item:first-child { grid-row: auto; grid-column: span 2; }
+      .form-grid { grid-template-columns: 1fr; gap: 0; }
+      form, .contact-info { padding: 22px; }
+      .cta-band { display: block; padding: 25px; }
+      .cta-band .btn { margin-top: 20px; width: 100%; }
+      th, td { padding: 11px 12px; font-size: .88rem; }
+      .whatsapp-float { right: 12px; bottom: 12px; padding: 12px 15px; }
+      .whatsapp-float .wa-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Glass · Aluminium · Mirrors · Interior Solutions</span>
+      <span>Wazirabad, Sector 52, Gurugram · <a href="tel:+919667611525">+91 96676 11525</a></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="SHAHJAD GLASS home">
+        <div class="brand-mark">SG</div>
+        <div><div class="brand-name">SHAHJAD GLASS</div><div class="brand-tag">QUALITY · TRUST · EXCELLENCE</div></div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav id="mainNav">
+        <a href="#services">Services</a>
+        <a href="#prices">Price List</a>
+        <a href="#gallery">Our Work</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary nav-quote" href="#contact">Get a Quote ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Your local glass & interior specialists</div>
+          <h1>Make Your Space <span>Shine.</span></h1>
+          <p class="hero-copy">Discover quality glasswork, stylish aluminium solutions, LED mirrors and modern interior finishes—made to suit your space and your vision.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a Quote <span>↗</span></a>
+            <a class="btn btn-outline" href="https://wa.me/919667611525?text=Hello%20SHAHJAD%20GLASS%2C%20I%20would%20like%20a%20quotation." target="_blank" rel="noopener">☏ WhatsApp Us</a>
+          </div>
+          <div class="trust-row">
+            <span><b class="check">✓</b> Custom solutions</span>
+            <span><b class="check">✓</b> Quality-focused work</span>
+            <span><b class="check">✓</b> Local service in Gurugram</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Modern home interior with glass and natural light" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-fallback"><span style="font-size:3rem">▱</span><strong>Glass that elevates every space</strong><span>Doors · Partitions · Mirrors · Interiors</span></div>
+          </div>
+          <div class="float-card"><strong>Designed around you</strong><small>Thoughtful finishes for homes, offices and commercial spaces.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">What we do</div><h2>Solutions for every space</h2><p>From a single mirror to a complete glass installation, we help bring your ideas to life.</p></div>
+          <a class="btn btn-outline" href="#contact">Discuss Your Project ↗</a>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon">▱</div><h3>Glass Doors & Partitions</h3><p>Frameless doors, office partitions, cubicles and custom glass installations.</p><a href="#contact" data-service="Glass doors & partitions">Enquire about this →</a></article>
+          <article class="service-card"><div class="service-icon">◫</div><h3>Toughened Glass</h3><p>Glass options for suitable doors, panels, railings and architectural applications.</p><a href="#contact" data-service="Toughened glass">Enquire about this →</a></article>
+          <article class="service-card"><div class="service-icon">✧</div><h3>LED & Designer Mirrors</h3><p>Single-light and triple-light LED mirrors, decorative mirrors and custom designs.</p><a href="#contact" data-service="LED and designer mirrors">Enquire about this →</a></article>
+          <article class="service-card"><div class="service-icon">▥</div><h3>Aluminium & uPVC Windows</h3><p>Practical window and frame solutions for residential and commercial spaces.</p><a href="#contact" data-service="Aluminium and uPVC windows">Enquire about this →</a></article>
+          <article class="service-card"><div class="service-icon">◈</div><h3>Shower Enclosures</h3><p>Glass shower partitions and cubicles with suitable sliding shower fittings.</p><a href="#contact" data-service="Glass shower enclosure">Enquire about this →</a></article>
+          <article class="service-card"><div class="service-icon">⌂</div><h3>Interior Finishes</h3><p>Wall panels, wallpapers, curtains, coloured glass and renovation solutions.</p><a href="#contact" data-service="Interior finishes and renovation">Enquire about this →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="prices">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Transparent starting prices</div><h2>Selected price list</h2><p>Indicative rates for popular mirror options. Final pricing depends on size, specification, fittings and installation.</p></div>
+        </div>
+        <div class="price-wrap">
+          <aside class="price-note">
+            <div class="kicker" style="color:#c7ead3">SHAHJAD GLASS</div>
+            <h3>Have a custom requirement?</h3>
+            <p>Share your measurements, preferred glass type and location. We'll help you request a project-specific quotation.</p>
+            <a class="btn btn-light" href="https://wa.me/919667611525?text=Hello%20SHAHJAD%20GLASS%2C%20please%20help%20me%20with%20a%20glass%20quotation." target="_blank" rel="noopener">Ask on WhatsApp ↗</a>
+          </aside>
+          <div>
+            <div class="price-panel">
+              <h3>LED & Normal Mirrors <span style="color:var(--muted);font-weight:500;font-size:.82rem">(per sq. ft.)</span></h3>
+              <table><thead><tr><th>Product</th><th>Price</th></tr></thead><tbody>
+                <tr><td>Single-light LED mirror</td><td>₹380 / sq. ft.</td></tr>
+                <tr><td>Triple-light LED mirror</td><td>₹450–₹700 / sq. ft.</td></tr>
+                <tr><td>Normal mirror</td><td>₹110–₹250 / sq. ft.</td></tr>
+              </tbody></table>
+            </div>
+            <div class="price-panel">
+              <h3>Clear Toughened Glass <span style="color:var(--muted);font-weight:500;font-size:.82rem">(per sq. ft.)</span></h3>
+              <table><thead><tr><th>Thickness</th><th>Listed rate</th></tr></thead><tbody>
+                <tr><td>5 mm</td><td>₹115</td></tr><tr><td>6 mm</td><td>₹135</td></tr><tr><td>8 mm</td><td>₹145</td></tr><tr><td>10 mm</td><td>₹160</td></tr><tr><td>12 mm</td><td>₹180</td></tr>
+              </tbody></table>
+            </div>
+            <div class="price-panel">
+              <h3>Frosted Glass <span style="color:var(--muted);font-weight:500;font-size:.82rem">(per sq. ft.)</span></h3>
+              <table><thead><tr><th>Thickness</th><th>Non-toughened</th><th>Toughened</th></tr></thead><tbody>
+                <tr><td>5 mm</td><td>₹90</td><td>₹135</td></tr>
+                <tr><td>6 mm</td><td>₹125</td><td>₹150</td></tr>
+                <tr><td>8 mm</td><td>₹150</td><td>₹190</td></tr>
+                <tr><td>10 mm</td><td>₹190</td><td>₹240</td></tr>
+                <tr><td>12 mm</td><td>₹240</td><td>₹290</td></tr>
+              </tbody></table>
+            </div>
+            <div class="price-panel">
+              <h3>Brown Table-Top Glass <span style="color:var(--muted);font-weight:500;font-size:.82rem">(per sq. ft.)</span></h3>
+              <table><thead><tr><th>Thickness</th><th>Non-toughened</th><th>Toughened</th></tr></thead><tbody>
+                <tr><td>5 mm</td><td>₹90</td><td>₹130</td></tr>
+                <tr><td>8 mm</td><td>₹170</td><td>₹240</td></tr>
+                <tr><td>10 mm</td><td>₹230</td><td>₹310</td></tr>
+                <tr><td>12 mm</td><td>₹300</td><td>₹380</td></tr>
+              </tbody></table>
+            </div>
+            <div class="price-panel">
+              <h3>Other Glass Products & Materials</h3>
+              <table><thead><tr><th>Product</th><th>Price</th></tr></thead><tbody>
+                <tr><td>White lacquer glass, 5 mm</td><td>₹180 / sq. ft.</td></tr>
+                <tr><td>Frosted glass film (including labour)</td><td>₹50–₹90 / sq. ft.</td></tr>
+                <tr><td>Silicone / Nail-Free adhesive</td><td>₹550</td></tr>
+                <tr><td>1-inch stud</td><td>₹75 / piece</td></tr>
+              </tbody></table>
+            </div>
+            <div class="price-panel">
+              <h3>Additional services</h3>
+              <table><thead><tr><th>Service</th><th>Listed rate</th></tr></thead><tbody>
+                <tr><td>Grinding & polishing</td><td>+₹10 / sq. ft.</td></tr>
+                <tr><td>Glass bevelling</td><td>₹50 / sq. ft.</td></tr>
+                <tr><td>Full pencil edge</td><td>₹50 / sq. ft.</td></tr>
+                <tr><td>Glass hole</td><td>₹30 / hole</td></tr>
+              </tbody></table>
+            </div>
+            <p class="price-disclaimer">Rates are indicative and may change. Confirm current price, glass specification, GST if applicable, hardware, labour, transport and installation charges before ordering. Prices not shown for a product are available on request. Toughened-glass thickness and suitability must be confirmed for the intended application.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Product catalogue</div><h2>Products for your project</h2><p>Explore our main product categories. Contact us for available sizes, finishes, fittings and project-specific pricing.</p></div>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon">◫</div><h3>Clear & Toughened Glass</h3><p>Multiple thickness options for suitable doors, partitions, panels and other applications.</p><a href="#prices" data-service="Toughened glass">View listed rates →</a></article>
+          <article class="service-card"><div class="service-icon">❄</div><h3>Frosted Glass & Film</h3><p>Privacy solutions for offices, bathrooms, doors and interior partitions.</p><a href="#prices" data-service="Other / not sure yet">View listed rates →</a></article>
+          <article class="service-card"><div class="service-icon">✧</div><h3>LED Mirrors</h3><p>Single-light and triple-light styles for bathrooms, dressing areas and modern interiors.</p><a href="#prices" data-service="LED and designer mirrors">View listed rates →</a></article>
+          <article class="service-card"><div class="service-icon">▤</div><h3>Table-Top Glass</h3><p>Brown table-top glass options in selected thicknesses, with toughened choices listed.</p><a href="#prices" data-service="Other / not sure yet">View listed rates →</a></article>
+          <article class="service-card"><div class="service-icon">▥</div><h3>Aluminium & uPVC</h3><p>Window and frame solutions. Pricing depends on dimensions, profile and hardware.</p><a href="#contact" data-service="Aluminium and uPVC windows">Request a quote →</a></article>
+          <article class="service-card"><div class="service-icon">⌂</div><h3>Shower & Interior Products</h3><p>Shower partitions, sliding fittings, coloured glass, wall panels, wallpapers and curtains.</p><a href="#contact" data-service="Glass shower enclosure">Request a quote →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Ideas & inspiration</div><h2>Explore glass and interior styles</h2><p>Use this gallery as a visual starting point. Replace the sample images with photographs of your own completed projects to showcase your workmanship.</p></div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80" alt="Modern home interior" loading="lazy" onerror="this.remove();"><span class="gallery-label">Modern interiors</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Contemporary interior finish" loading="lazy" onerror="this.remove();"><span class="gallery-label">Premium finishes</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80" alt="Bright architectural space" loading="lazy" onerror="this.remove();"><span class="gallery-label">Glass & light</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80" alt="Living room design" loading="lazy" onerror="this.remove();"><span class="gallery-label">Living spaces</span></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=700&q=80" alt="Minimal contemporary room" loading="lazy" onerror="this.remove();"><span class="gallery-label">Custom concepts</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">Simple process</div><h2>From idea to installation</h2><p>Tell us what you need and we'll help you plan the next step.</p></div></div>
+        <div class="steps">
+          <div class="step"><div class="step-number">1</div><h3>Share your requirement</h3><p>Send measurements, photos or a description of the work you have in mind.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Discuss the quotation</h3><p>Confirm material, thickness, design, hardware, labour and delivery details.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>Plan your project</h3><p>Agree on the scope and schedule before work begins.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="kicker" style="color:#c7ead3">Get in touch</div>
+            <h2>Let's talk about your project.</h2>
+            <p>Contact SHAHJAD GLASS for product information, measurements and quotation requests.</p>
+            <div class="contact-line"><div class="contact-symbol">☎</div><div><small>Call us</small><a href="tel:+919667611525"><strong>+91 96676 11525</strong></a></div></div>
+            <div class="contact-line"><div class="contact-symbol">✉</div><div><small>Email us</small><a href="mailto:shahjadglass@gmail.com"><strong>shahjadglass@gmail.com</strong></a></div></div>
+            <div class="contact-line"><div class="contact-symbol">⌖</div><div><small>Visit our shop</small><strong>Wazirabad, Sector 52, Gurugram, Haryana, India</strong></div></div>
+            <a class="btn btn-light" href="https://maps.app.goo.gl/9UNkk2WaxVhA4fiMA?g_st=ac" target="_blank" rel="noopener">Open Google Maps ↗</a>
+          </div>
+          <form id="quoteForm">
+            <h3>Request a quotation</h3>
+            <p class="form-sub">Fill in the details. Your request will open in WhatsApp so you can send it directly.</p>
+            <div class="form-grid">
+              <div class="field"><label for="customerName">Your name *</label><input id="customerName" name="name" autocomplete="name" required placeholder="Enter your name"></div>
+              <div class="field"><label for="customerPhone">Phone number *</label><input id="customerPhone" name="phone" type="tel" autocomplete="tel" required placeholder="Your contact number"></div>
+            </div>
+            <div class="field"><label for="serviceType">Service required *</label><select id="serviceType" name="service" required><option value="">Choose a service</option><option>Glass doors & partitions</option><option>Toughened glass</option><option>LED and designer mirrors</option><option>Aluminium and uPVC windows</option><option>Glass shower enclosure</option><option>Interior finishes and renovation</option><option>Other / not sure yet</option></select></div>
+            <div class="field"><label for="projectDetails">Measurements or project details</label><textarea id="projectDetails" name="details" placeholder="Example: 8 ft × 4 ft mirror, preferred finish, project location…"></textarea></div>
+            <button class="btn btn-primary" type="submit" style="width:100%">Continue to WhatsApp ↗</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="container">
+        <div class="cta-band">
+          <div><h2>Ready to upgrade your space?</h2><p>Contact SHAHJAD GLASS today to discuss your glass or interior project.</p></div>
+          <a class="btn btn-light" href="https://wa.me/919667611525?text=Hello%20SHAHJAD%20GLASS%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">Start a WhatsApp chat ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><a class="brand" href="#home"><div class="brand-mark">SG</div><div><div class="brand-name">SHAHJAD GLASS</div><div class="brand-tag">QUALITY · TRUST · EXCELLENCE</div></div></a><p>© <span id="year"></span> SHAHJAD GLASS. All rights reserved.</p></div>
+      <div class="footer-links"><a href="#services">Services</a><a href="#products">Products</a><a href="#prices">Price List</a><a href="#contact">Contact</a><a href="mailto:shahjadglass@gmail.com">Email</a></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919667611525?text=Hello%20SHAHJAD%20GLASS%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat with SHAHJAD GLASS on WhatsApp"><span>◉</span><span class="wa-label">WhatsApp</span></a>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    menuToggle.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '✕' : '☰';
+    });
+    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+    document.querySelectorAll('[data-service]').forEach(link => {
+      link.addEventListener('click', () => {
+        const select = document.getElementById('serviceType');
+        const wanted = link.getAttribute('data-service');
+        const option = [...select.options].find(o => o.text.toLowerCase() === wanted.toLowerCase());
+        if (option) select.value = option.value;
+      });
+    });
+    document.getElementById('quoteForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const service = document.getElementById('serviceType').value;
+      const details = document.getElementById('projectDetails').value.trim();
+      if (!name || !phone || !service) return;
+      const message = [
+        'Hello SHAHJAD GLASS, I would like a quotation.',
+        '',
+        'Name: ' + name,
+        'My phone: ' + phone,
+        'Service: ' + service,
+        details ? 'Project details: ' + details : ''
+      ].filter(Boolean).join('\\n');
+      document.getElementById('formStatus').textContent = 'Opening WhatsApp with your enquiry…';
+      const url = 'https://wa.me/919667611525?text=' + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
